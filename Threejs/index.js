@@ -1,21 +1,22 @@
 const scene = new THREE.Scene()
-const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 )
+const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 )//angulo, prop imagen, near lim, far lim
 const renderer = new THREE.WebGLRenderer({ antialias: true})
 
 renderer.setSize( window.innerWidth, window.innerHeight )
-document.body.appendChild( renderer.domElement )
+document.body.appendChild( renderer.domElement )//<-----------------
 
-var geometry = new THREE.SphereGeometry( 1, 32, 16)
-var material = new THREE.MeshStandardMaterial( { color: 0x0dc4ff })
-var cube = new THREE.Mesh ( geometry, material )
+var geometry = new THREE.SphereGeometry( 1, 32, 16)//radio, subdivisiones ancho, sub alto (contiene informacion poligonal)
+var material = new THREE.MeshStandardMaterial( { color: 0x0dc4ff })//contiene informacion del material
+var cube = new THREE.Mesh ( geometry, material )//contiene la geometria y el material
 
-var geometry2 = new THREE.BoxGeometry( 2, 3, 2)
+var geometry2 = new THREE.BoxGeometry( 2, 3, 2)//x,y,z
 var material2 = new THREE.MeshBasicMaterial( {
  color: "#ffb1ef", wireframe: true, transparent: true})
 var wireframeCube = new THREE.Mesh ( geometry2, material2 )
-scene.add( wireframeCube )
 
+scene.add( wireframeCube )
 scene.add( cube )
+
 renderer.render( scene, camera )
 camera.position.z = 5
 
