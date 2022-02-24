@@ -5,7 +5,7 @@ const renderer = new THREE.WebGLRenderer({ antialias: true})
 renderer.setSize( window.innerWidth, window.innerHeight )
 document.body.appendChild( renderer.domElement )
 
-var geometry = new THREE.BoxGeometry( 1, 1, 1)
+var geometry = new THREE.SphereGeometry( 1, 32, 16)
 var material = new THREE.MeshStandardMaterial( { color: 0x0dc4ff })
 var cube = new THREE.Mesh ( geometry, material )
 
